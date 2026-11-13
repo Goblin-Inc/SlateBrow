@@ -24,6 +24,8 @@ DEFAULT_CONFIG: Dict[str, Any] = {
         {"name": "GitHub", "url": "https://github.com"},
         {"name": "Lofi Radio", "url": "https://www.youtube.com/results?search_query=lofi+hip+hop+radio+live"},
     ],
+    "last_session_tabs": ["slate://home"],
+    "restore_session": True,
 }
 
 

@@ -42,8 +42,9 @@ def create_browser_profile(parent=None) -> QWebEngineProfile:
     profile = QWebEngineProfile("SlateBrowProfile", parent)
     profile.setPersistentStoragePath(str(storage_dir))
     profile.setCachePath(str(cache_dir))
+    profile.setHttpCacheType(QWebEngineProfile.HttpCacheType.DiskHttpCache)
     profile.setPersistentCookiesPolicy(
-        QWebEngineProfile.PersistentCookiesPolicy.AllowPersistentCookies
+        QWebEngineProfile.PersistentCookiesPolicy.ForcePersistentCookies
     )
     profile.setHttpUserAgent(
         config.get(

@@ -38,6 +38,10 @@ class BrowserWindow(QMainWindow):
     def setup_window(self):
         self.setWindowTitle("SlateBrow")
         self.resize(1280, 820)
+        icon_path = Path(__file__).resolve().parent.parent / "assets" / "icons" / "slatebrow.svg"
+        if icon_path.exists():
+            from PySide6.QtGui import QIcon
+            self.setWindowIcon(QIcon(str(icon_path)))
 
     def load_stylesheet(self):
         qss_path = Path(__file__).resolve().parent.parent / "assets" / "style.qss"
@@ -63,8 +67,14 @@ class BrowserWindow(QMainWindow):
         layout.addWidget(self.tabs, 1)
         self.setCentralWidget(central_widget)
 
-        # Открываем первую стартовую вкладку
-        self.add_new_tab(config.get("homepage", "slate://home"))
+        # Восстанавливаем вкладки из прошлой сессии или открываем домашнюю
+        saved_tabs = config.get("last_session_tabs", []) if config.get("restore_session", True) else []
+        valid_tabs = [u for u in saved_tabs if isinstance(u, str) and u.strip()]
+        if valid_tabs:
+            for i, u in enumerate(valid_tabs):
+                self.add_new_tab(u, switch_to=(i == len(valid_tabs) - 1))
+        else:
+            self.add_new_tab(config.get("homepage", "slate://home"))
 
     def connect_signals(self):
         self.toolbar.url_bar.returnPressed.connect(self.load_url_from_bar)
@@ -317,6 +327,17 @@ class BrowserWindow(QMainWindow):
                 view.setFocus()
 
     def closeEvent(self, event):
+        session_urls = []
+        for i in range(self.tabs.count()):
+            w: QWebEngineView = self.tabs.widget(i)
+            if w:
+                u = w.url().toString()
+                if u in ("", "about:blank") or u.startswith("data:"):
+                    u = "slate://home"
+                session_urls.append(u)
+        if session_urls:
+            config.set("last_session_tabs", session_urls)
+
         while self.tabs.count() > 0:
             widget = self.tabs.widget(0)
             self.tabs.removeTab(0)
