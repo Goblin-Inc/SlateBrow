@@ -1,0 +1,150 @@
+/* SlateBrow — Slate Obsidian & Emerald Modern Theme */
+
+QMainWindow {
+    background-color: #0b0f17;
+    color: #e2e8f0;
+}
+
+QWidget {
+    font-family: "Inter", "Segoe UI", "JetBrainsMono Nerd Font", sans-serif;
+    color: #e2e8f0;
+}
+
+QFrame#navBar {
+    background-color: #0f1623;
+    border-bottom: 1px solid #1e293b;
+}
+
+QFrame#bookmarksBar {
+    background-color: #0c121d;
+    border-bottom: 1px solid #172030;
+}
+
+QPushButton#navBtn {
+    background-color: #162032;
+    border: 1px solid #23324a;
+    border-radius: 10px;
+    color: #cbd5e1;
+    font-size: 15px;
+    font-weight: 600;
+    min-width: 34px;
+    max-width: 34px;
+    min-height: 32px;
+    max-height: 32px;
+    padding: 0px;
+}
+
+QPushButton#navBtn:hover {
+    background-color: #1e2d45;
+    border-color: #10b981;
+    color: #ffffff;
+}
+
+QPushButton#navBtn:pressed {
+    background-color: #131d2e;
+}
+
+QPushButton#navBtn[bookmarked="true"] {
+    color: #fbbf24;
+    border-color: rgba(251, 191, 36, 0.5);
+}
+
+QPushButton#newTabBtn {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+        stop:0 #10b981,
+        stop:1 #0ea5e9);
+    border: none;
+    border-radius: 10px;
+    color: #061018;
+    font-size: 18px;
+    font-weight: 800;
+    min-width: 34px;
+    max-width: 34px;
+    min-height: 32px;
+    max-height: 32px;
+}
+
+QPushButton#newTabBtn:hover {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+        stop:0 #34d399,
+        stop:1 #38bdf8);
+}
+
+QLineEdit#urlBar {
+    background-color: #080c14;
+    border: 1px solid #23324a;
+    border-radius: 11px;
+    padding: 6px 14px;
+    color: #f1f5f9;
+    font-size: 13px;
+    min-height: 20px;
+    selection-background-color: #0ea5e9;
+}
+
+QLineEdit#urlBar:focus {
+    border: 1px solid #10b981;
+    background-color: #0b111c;
+}
+
+QPushButton#bookmarkItem {
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: 7px;
+    color: #94a3b8;
+    font-size: 12px;
+    padding: 3px 10px;
+}
+
+QPushButton#bookmarkItem:hover {
+    background-color: #162032;
+    border-color: #23324a;
+    color: #f8fafc;
+}
+
+QProgressBar#loadProgress {
+    background-color: transparent;
+    border: none;
+}
+
+QProgressBar#loadProgress::chunk {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+        stop:0 #10b981,
+        stop:1 #38bdf8);
+}
+
+QTabWidget::pane {
+    border: none;
+    background-color: #0b0f17;
+}
+
+QTabBar {
+    background-color: #0b0f17;
+    border-bottom: 1px solid #172030;
+}
+
+QTabBar::tab {
+    background-color: #0f1623;
+    color: #94a3b8;
+    border: 1px solid #1b2638;
+    border-bottom: none;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 7px 14px;
+    margin-right: 4px;
+    margin-top: 4px;
+    min-width: 120px;
+    max-width: 220px;
+    font-size: 12px;
+}
+
+QTabBar::tab:selected {
+    background-color: #192538;
+    color: #f8fafc;
+    border-color: #10b981;
+    font-weight: 600;
+}
+
+QTabBar::tab:hover:!selected {
+    background-color: #141e30;
+    color: #e2e8f0;
+}

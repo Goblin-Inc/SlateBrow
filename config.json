@@ -1,0 +1,37 @@
+{
+    "homepage": "https://google.com",
+    "search_engine": "https://duckduckgo.com/?q={query}",
+    "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
+    "shortcuts": [
+        {
+            "name": "GitHub",
+            "url": "https://github.com"
+        },
+        {
+            "name": "ChatGPT",
+            "url": "https://chatgpt.com"
+        },
+        {
+            "name": "YouTube",
+            "url": "https://youtube.com"
+        },
+        {
+            "name": "Gmail",
+            "url": "https://gmail.com"
+        }
+    ],
+    "bookmarks": [
+        {
+            "name": "YouTube Live",
+            "url": "https://www.youtube.com/channel/UC4R8DWoMoI7CAwX8_LjQHig"
+        },
+        {
+            "name": "GitHub",
+            "url": "https://github.com"
+        },
+        {
+            "name": "Lofi Radio",
+            "url": "https://www.youtube.com/results?search_query=lofi+hip+hop+radio+live"
+        }
+    ]
+}
