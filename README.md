@@ -77,10 +77,19 @@ sudo apt-get install -f
 ```
 После этого **SlateBrow** появится в списке веб-браузеров вашей системы и будет запускаться командой `slatebrow`.
 
-### Вариант 2: Запуск из исходников
+### Вариант 2: Arch Linux (`pacman`) / Универсальная установка из репозитория
 ```bash
 git clone https://github.com/Goblin-Inc/SlateBrow.git
 cd SlateBrow
+
+# Автоматическая установка (сам определит Arch Linux pacman или Ubuntu/Debian apt):
+./install.sh
+
+# Либо вручную на Arch Linux:
+sudo pacman -S python pyside6 qt6-webengine qt6-multimedia-ffmpeg
+./run.sh
+
+# Либо вручную на Ubuntu / Debian:
 sudo apt install python3-pyside6.qtwebenginewidgets python3-pyside6.qtwebenginecore
 ./run.sh
 ```
