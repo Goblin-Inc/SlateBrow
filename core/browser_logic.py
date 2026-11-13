@@ -46,12 +46,9 @@ def create_browser_profile(parent=None) -> QWebEngineProfile:
     profile.setPersistentCookiesPolicy(
         QWebEngineProfile.PersistentCookiesPolicy.ForcePersistentCookies
     )
-    profile.setHttpUserAgent(
-        config.get(
-            "user_agent",
-            "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
-        )
-    )
+    custom_ua = config.get("user_agent", "").strip()
+    if custom_ua:
+        profile.setHttpUserAgent(custom_ua)
 
     settings = profile.settings()
     settings.setAttribute(QWebEngineSettings.WebAttribute.FullScreenSupportEnabled, True)

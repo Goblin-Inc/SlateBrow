@@ -6,11 +6,7 @@ from typing import Any, Dict, List
 DEFAULT_CONFIG: Dict[str, Any] = {
     "homepage": "slate://home",
     "search_engine": "https://duckduckgo.com/?q={query}",
-    "user_agent": (
-        "Mozilla/5.0 (X11; Linux x86_64) "
-        "AppleWebKit/537.36 (KHTML, like Gecko) "
-        "Chrome/131.0.0.0 Safari/537.36"
-    ),
+    "user_agent": "",
     "shortcuts": [
         {"name": "YouTube", "url": "https://www.youtube.com", "icon": "▶"},
         {"name": "Twitch Live", "url": "https://www.twitch.tv", "icon": "📡"},
